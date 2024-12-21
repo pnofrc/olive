@@ -1,57 +1,61 @@
-
 document.addEventListener("DOMContentLoaded", function () {
-    let title =  document.querySelector("title")
-    let counter = 450;
-    let chain = document.getElementById("chain");
-    let otherchain = document.getElementById("otherchain");
-    
+    Pd.startOnClick(document.body, function () {
+        let title = document.querySelector("title")
+        let counter = 450;
+        let chain = document.getElementById("chain");
+        let otherchain = document.getElementById("otherchain");
 
-    // animation title
 
-    let forward = true 
+        // animation title
 
-    function changeTitle() {
-        if (title.textContent.length<=2){
-            forward = true
-        } else if(title.textContent.length>=10){
-            forward = false
+        let forward = true
+
+        function changeTitle() {
+            if (title.textContent.length <= 2) {
+                forward = true
+            } else if (title.textContent.length >= 10) {
+                forward = false
+            }
+
+            if (forward == true) {
+                title.textContent += "🫒";
+            } else {
+                title.textContent = title.textContent.substring(0, title.textContent.length - 2);;
+            }
+
         }
 
-        if(forward == true){
-            title.textContent += "🫒";
-        } else {
-            title.textContent = title.textContent.substring(0, title.textContent.length - 2);; 
+        setInterval(changeTitle, 300);
+
+        // animation one
+
+        function down() {
+            Pd.send('stopvelox', [1]);
+            if (counter <= Number(-134185)) {
+                setTimeout(window.location.reload(), 400)
+            }
+            chain.style.bottom = `${counter}px`;
+            counter = counter - 250;
+            Pd.send('startvelox', [.1]);
+
+            // Pd.send('fastdue',[2]);
+
+
         }
 
-    }
+        setInterval(down, 3000);
 
-    setInterval(changeTitle, 300);
+        // animation two
 
-    // animation one
+        otherchain.style.top = '-' + otherchain.scrollHeight + 'px'
+        otherchain.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 
-    function down() {
-        if (counter <= Number(-134185)) {
-            setTimeout(() => {
-                window.location.reload()
-            }, 400);
-        }
-        chain.style.bottom = `${counter}px`;
-        counter = counter - 250;
-        console.log(counter);
-    }
+        // toggle theme
 
-    setInterval(down, 3000);
+        document.getElementById('theme').addEventListener("click", () => {
+            document.body.classList.toggle('light');
+        })
 
-    // animation two
 
-    otherchain.style.top = '-'+otherchain.scrollHeight+'px'
-
-    otherchain.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-
-    // toggle theme
-
-    document.getElementById('theme').addEventListener("click", ()=>{
-        document.body.classList.toggle('light');
     })
-
 });
