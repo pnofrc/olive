@@ -32,13 +32,12 @@ html, body{
     font-family: 'steps-thin';
     font-weight: 400;
     font-size: 4vmax;
-    background-color: var(--bg);
-    color: var(--txt);
     overflow: hidden;
 }
 
 body{
     display: flex;
+    margin: 0;
 }
 
 
