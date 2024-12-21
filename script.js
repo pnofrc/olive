@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // animation two
 
-        // otherchain.style.top = '-' + otherchain.scrollHeight + 'px'
+        otherchain.style.top = '-' + otherchain.scrollHeight + 'px'
         otherchain.scrollTo({ top: 0, left: 0, behavior: "smooth" });
 
         // toggle theme
