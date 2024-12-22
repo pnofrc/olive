@@ -1,10 +1,18 @@
-document.addEventListener("DOMContentLoaded", function () {
-    Pd.startOnClick(document.body, function () {
-        let title = document.querySelector("title")
-        let counter = 450;
-        let chain = document.getElementById("chain");
-        let otherchain = document.getElementById("otherchain");
+let title = document.querySelector("title")
+let counter = 450;
+let chain = document.getElementById("chain");
+let otherchain = document.getElementById("otherchain");
+// otherchain.style.top = '-' + otherchain.style.top + 'px'
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    otherchain.style.top = '-' + otherchain.scrollHeight + 'px'
+
+
+    // click to start
+    Pd.startOnClick(document.body, function () {
+
+        document.querySelector('#start').style.display = 'none'
 
         // animation title
 
@@ -27,34 +35,54 @@ document.addEventListener("DOMContentLoaded", function () {
 
         setInterval(changeTitle, 300);
 
-        // animation one
 
+        // animation left
+
+        let checkPos = chain.scrollHeight
+        checkPos = -checkPos
         function down() {
+
             Pd.send('stopvelox', [1]);
-            if (counter <= Number(-134185)) {
-                setTimeout(window.location.reload(), 400)
+
+            if (counter <= checkPos) {
+                chain.style.top = "0";
+                counter = 900;
+                Pd.send('fastdue', [2]);
             }
-            chain.style.bottom = `${counter}px`;
+
+            chain.style.top = `${counter}px`;
             counter = counter - 250;
             Pd.send('startvelox', [.1]);
-
-            // Pd.send('fastdue',[2]);
-
-
         }
 
-        setInterval(down, 3000);
+        setInterval(down, 4500);
 
-        // animation two
+        // animation right
 
-        otherchain.style.top = '-' + otherchain.scrollHeight + 'px'
-        otherchain.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        let toBottom = true;
+        const chainHeight = otherchain.scrollHeight;
 
-        // toggle theme
+        otherchain.style.top = `-${chainHeight}px`;
 
-        document.getElementById('theme').addEventListener("click", () => {
-            document.body.classList.toggle('light');
-        })
+        otherchain.addEventListener('transitionend', function (e) {
+            if (toBottom) {
+                otherchain.style.top = `${chainHeight}px`;
+                otherchain.style.transition = 'top 1000s linear'; 
+
+                toBottom = false;
+            } else {
+                otherchain.style.top = `-${chainHeight}px`;
+                otherchain.style.transition = 'top 1s linear';
+                Pd.send('fastuno', [2]);
+                toBottom = true;
+            }
+        });
+
+        setTimeout(() => {
+            otherchain.style.top = `${chainHeight}px`;
+            toBottom = false;
+        }, 10);
+
 
 
     })

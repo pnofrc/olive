@@ -1,6 +1,6 @@
 :root{
-    --bg: black;
-    --txt: white;
+    --bg: white;
+    --txt: black;
 }
 
 @font-face {
@@ -20,18 +20,13 @@
     src: url('fonts/Steps-Mono.otf');
 }
 
-body.light{
-    --bg: white;
-    --txt: black;
-}
-
 
 html, body{
     width: 100%;
     height: 100vh;
     font-family: 'steps-thin';
     font-weight: 400;
-    font-size: 4vmax;
+    font-size: 3vmax;
     overflow: hidden;
 }
 
@@ -42,24 +37,30 @@ body{
     margin: 0;
 }
 
-
+#start{
+    font-size: 4rem;
+}
 
 #chain, #otherchain{
     margin: 4vmin;
     height: max-content;
     position: fixed;
-    transition: bottom .4s ease-in;
-    bottom: 100%;
+    transition: top .4s ease-in;
     left: 0;
-    width: 47%;
+    width: 40%;
+    z-index: 2;
+}
+
+#chain{
+    top: 100%
 }
 
 #otherchain{
     text-align: right;
     right: 0;
     left: unset;
-    transition: top 3020s linear;
-    top: 100%
+    transition: top 1000s linear;
+    /* top: 100% */
 }
 
 #theme{
@@ -95,4 +96,12 @@ body{
     100% {
         transform: translateX(-50%) translateY(0);
     }
+}
+
+#olivissima{
+    position: absolute;
+    top: 18%;
+    left: 33%;
+    z-index: -1;
+    opacity: 0.7;
 }
