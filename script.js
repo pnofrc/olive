@@ -2,11 +2,9 @@ let title = document.querySelector("title")
 let counter = 450;
 let chain = document.getElementById("chain");
 let otherchain = document.getElementById("otherchain");
-// otherchain.style.top = '-' + otherchain.style.top + 'px'
+ otherchain.style.top = '-' + otherchain.scrollHeight + 'px'
 
 document.addEventListener("DOMContentLoaded", function () {
-
-    otherchain.style.top = '-' + otherchain.scrollHeight + 'px'
 
 
     // click to start
