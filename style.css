@@ -98,14 +98,14 @@ body{
 }
 
 
-.olive{
+.melanzane{
     color: rgb(111, 0, 128);
     position: relative;
     display: inline;
 }
 
 
-.olive::after {
+.melanzane::after {
     content: '🍆'; 
     position: absolute;
     bottom: .7rem; 
