@@ -34,6 +34,10 @@ document.addEventListener("DOMContentLoaded", function () {
         setInterval(changeTitle, 300);
 
 
+
+  
+
+
         // animation left
 
         let checkPos = chain.scrollHeight

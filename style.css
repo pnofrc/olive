@@ -98,6 +98,24 @@ body{
 }
 
 
+.olive{
+    color: rgb(111, 0, 128);
+    position: relative;
+    display: inline;
+}
+
+
+.olive::after {
+    content: '🍆'; 
+    position: absolute;
+    bottom: .7rem; 
+    right: 0;
+    /* transform: translateX(50%); */
+    animation: bounce 1s infinite;
+    filter: drop-shadow(9px 35px 25px #2d521d);
+    filter: drop-shadow(9px 20px 20px #1c3711);
+}
+
 @keyframes bounce {
     0% {
         transform: translateX(-50%) translateY(0);
