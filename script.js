@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
             Pd.send('startvelox', [.1]);
         }
 
-        setInterval(down, 4500);
+        setInterval(down, 5000);
 
         // animation right
 
