@@ -46,7 +46,10 @@ body{
 }
 
 #olivissima{
-    opacity: 0.7;
+    opacity: 0.82;
+    filter: drop-shadow(29px 6px 40px #1c37115e);
+    scale: .6;
+    animation: dance .75s ease infinite;
 }
 
 #start{
@@ -125,6 +128,34 @@ body{
     }
     100% {
         transform: translateX(-50%) translateY(0);
+    }
+}
+
+
+@keyframes dance {
+    0% {
+        transform: rotate(0deg);
+    }
+    15% {
+        transform: rotate(45deg);
+    }
+    30% {
+        transform: rotate(60deg);
+    }
+    45% {
+        transform: rotate(80deg);
+    }
+    60% {
+        transform: rotate(120deg);
+    }
+    75% {
+        transform: rotate(200deg);
+    }
+    90% {
+        transform: rotate(288deg);
+    }
+    100% {
+        transform: rotate(365deg);
     }
 }
 
