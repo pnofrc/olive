@@ -81,7 +81,6 @@ body{
     left: unset;
     transition: top 1000s linear;
 height:min-content;
-border: solid;    /* top: 100% */
 }
 
 #theme{
