@@ -80,7 +80,8 @@ body{
     right: 0;
     left: unset;
     transition: top 1000s linear;
-    /* top: 100% */
+height:min-content;
+border: solid;    /* top: 100% */
 }
 
 #theme{
